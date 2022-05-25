@@ -1,0 +1,68 @@
+@media only screen and (min-width: 1024px) {
+  body {
+
+    font-size: 18px;
+  }
+
+  .calculator-box__summary--sum,
+  .calculator-box__summary--title,
+  input[type=number],
+  label {
+    font-size: 1.1rem;
+  }
+
+  .container {
+    height: 100vh;
+    background: url("/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .calculator {
+    width: auto;
+    height: auto;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1.2rem;
+  }
+
+  .calculator-box {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .cookies-msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5rem;
+  }
+
+  .cookies-msg__box {
+    width: calc(100% - 25rem);
+  }
+  .cookies-msg__buttons {
+    display: flex;
+    align-items: center;
+    width: 25rem;
+    justify-content: flex-end;
+  }
+
+  .cookies-msg__button {
+    max-width: 10rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .cookies-msg__header {
+    font-size: 1.3rem;
+  }
+
+  .cookies-msg__paragraph {
+    font-size: 1rem;
+  }
+}

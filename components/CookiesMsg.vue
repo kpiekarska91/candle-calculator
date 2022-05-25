@@ -1,18 +1,18 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="calculator-box">
-    <div class="calculator-box__summary">
-      <p class="calculator-box__summary--title">Wax (g)</p>
-      <p class="calculator-box__summary--sum">{{ weightWax }}g</p>
+  <div v-if="cookiesAccept" class="cookies-msg">
+    <div class="cookies-msg__box">
+      <h3 class="cookies-msg__header">We care about your privacy</h3>
+      <p class="cookies-msg__paragraph">We use cookies to personalise content and ads, to provide social media features
+        and to analyse our traffic.
+        We also share information about your use of our site with our social media, advertising and analytics
+        partners.</p>
     </div>
-    <div class="calculator-box__summary">
-      <p class="calculator-box__summary--title">Oil fragrance (g)</p>
-      <p class="calculator-box__summary--sum">{{ weightOil }}g</p>
-    </div>
-    <div class="calculator-box__summary calculator-box__summary--right">
-      <button :disabled="weightWax == 0 || weightOil == 0" @click="copyLink" class="calculator-box__summary--button" type="button">Copy</button>
-      <div :class="showTooltip ? 'tooltip-info-copy tooltip-info-copy-show' : 'tooltip-info-copy'">copied</div>
-
+    <div class="cookies-msg__buttons">
+      <a class="cookies-msg__button cookies-msg__button--more" target="_blank"
+         href="/download/Privacy_Policy_Candle_Calculator.pdf"
+      >Find out more</a>
+      <button class="cookies-msg__button cookies-msg__button--accept" @click="accept">Yes, I agree</button>
     </div>
   </div>
 </template>
@@ -22,48 +22,20 @@ export default {
   name: 'CandleCalc',
   data () {
     return {
-      weightWax: 0,
-      weightOil: 0,
-      showTooltip: false
-    }
-  },
-  props: {
-    weightCandle: Number,
-    percentageOil: Number,
-    numberOfCandles: Number,
-  },
-  watch: {
-    weightCandle () {
-      this.calculateConcentration()
-    },
-    percentageOil () {
-      this.calculateConcentration()
-    },
-    numberOfCandles () {
-      this.calculateConcentration()
+      cookiesAccept: false
     }
   },
 
   mounted () {
-    this.calculateConcentration()
+    if (!localStorage.hasOwnProperty('cookies_accept')) {
+      this.cookiesAccept = true
+    }
   },
   methods: {
-    calculateConcentration () {
+    accept () {
+      this.cookiesAccept = false
+      localStorage.setItem('cookies_accept', Date.now())
 
-      if (this.weightCandle && this.percentageOil && this.numberOfCandles) {
-        let weightWaxNetto = this.weightCandle / (1 + (this.percentageOil / 100))
-
-        this.weightWax = (weightWaxNetto * this.numberOfCandles).toFixed(1)
-        this.weightOil = ((weightWaxNetto * this.numberOfCandles) * (this.percentageOil / 100)).toFixed(1)
-      } else {
-        this.weightWax = 0
-        this.weightOil = 0
-      }
-    },
-    copyLink () {
-      this.showTooltip = true;
-      setTimeout(() =>  this.showTooltip = false, 2000);
-      navigator.clipboard.writeText('Wax: ' + this.weightWax + 'g, Oil fragrance: ' + this.weightOil + 'g')
     }
   }
 
