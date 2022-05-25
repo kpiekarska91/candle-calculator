@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Tangerine:wght@400;700&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  font-size: 1vw;
+  overflow: hidden;
+  min-height: -webkit-fill-available;
+  position: relative;
+  height: 100vh;
+}
+
+
+h1 {
+  margin: 0;
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+  font-size: 3.4rem;
+  color: #fff;
+  margin-bottom: .7rem;
+}
+
+label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: -.05rem;
+  color: #b8c4d0;
+}
+
+p {
+  margin: 0;
+}
+
+input[type="number"] {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #839fff;
+  text-align: center;
+  max-width: 3.5rem;
+  font-size: 1rem;
+  letter-spacing: -.1rem;
+  padding: 0.4rem 1.1rem;
+  border: none;
+  border: 2px solid rgba(131, 159, 255, 0.5);
+  border-radius: .5rem;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: .8rem auto;
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  height: .7rem; /* Specified height */
+  background: linear-gradient(130deg, #e1c3ff, #a0c1fe); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 1.4rem; /* Set a specific slider handle width */
+  height: 1.4rem; /* Slider handle height */
+  background: #fff; /* Green background */
+  border-radius: 1.4rem;
+  cursor: pointer; /* Cursor on hover */
+  -webkit-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1.4rem; /* Set a specific slider handle width */
+  height: 1.4rem; /* Slider handle height */
+  background: #fff; /* Green background */
+  border-radius: 1.4rem;
+  cursor: pointer; /* Cursor on hover */
+  -webkit-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+}
+
+.calculator {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(130deg, #e1c3ff, #a0c1fe);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-box {
+  background-color: #fff;
+  width: 80%;
+  max-width: 700px;
+  border-radius: .2rem;
+  -webkit-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  box-shadow: 0px 0px .7rem .2rem rgba(0, 0, 0, .2);
+  text-align: center;
+  margin: 1rem auto;
+  padding: 1.5rem 1.3rem;
+  box-sizing: border-box;
+  border-radius: 1.2rem;
+}
+
+.calculator-box__input {
+  margin-bottom: .8rem;
+}
+
+.calculator-box__input:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+.calculator-box__input--group-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calculator-box__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .7rem;
+}
+
+.calculator-box__summary:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+
+.calculator-box__summary--title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -.05rem;
+  color: #b8c4d0;
+}
+
+.calculator-box__summary--sum {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #839fff;
+  font-size: 1rem;
+  letter-spacing: -.1rem;
+}
+
+.calculator-box__summary--right {
+  justify-content: flex-end;
+}
+
+.calculator-box__summary--button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: .5rem 1.1rem;
+  border: none;
+  border-radius: .4rem;
+  color: #fff;
+  background-color: #a0c1fe;
+  margin: 0.6rem 0 0;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: no-drop;
+  }
+}
+
+.tooltip-info-copy {
+  position: absolute;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  border-radius: .4rem;
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  left: 0;
+  right: 0;
+  display: table;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  -webkit-transition: opacity .4s ease;
+  -moz-transition: opacity .4s ease;
+  -ms-transition: opacity .4s ease;
+  -o-transition: opacity .4s ease;
+  transition: opacity .4s ease;
+
+  &.tooltip-info-copy-show {
+
+    opacity: .6;
+  }
+}
+
+.cookies-msg {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.cookies-msg__header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #839fff;
+  margin: 0 0 .2rem;
+  font-size: 1rem;
+}
+
+.cookies-msg__paragraph {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #839fff;
+  font-size: .7rem;
+}
+
+.cookies-msg__button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: 0.5rem 1.1rem;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  background-color: #a0c1fe;
+  margin: 0.6rem 0 0;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cookies-msg__button--more {
+  background: #e1c3ff;
+  margin-right: .2rem;
+}
+
+
+@import "desktop";
